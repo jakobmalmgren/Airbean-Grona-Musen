@@ -1,15 +1,10 @@
 // import { useState } from 'react'
-
-import './App.css'
+import "./App.css";
+import About from "./components/about";
+import "./components/about.scss";
 
 function App() {
-
-
-  return (
-    <>
-
-    </>
-  )
+  return <About />;
 }
 
-export default App
+export default App;

@@ -4,12 +4,12 @@ import {useNavigate} from 'react-router-dom';
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
-    const HandleClick: () => void = () => {
-        navigate('/homepage');
+    const handleClick: ()=>void =() => {
+        navigate('/landing');
     };
     return(
-        <div className="wrapper" onClick={HandleClick}>
-            <img src={homepage} alt="homepage" />
+        <div className="wrapper" onClick={handleClick}>
+            <img className="homepage__img" src={homepage} alt="homepage" />
         </div>
     )};
 

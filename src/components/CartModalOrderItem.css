@@ -1,0 +1,21 @@
+.order-item__wrapper {
+  display: flex;
+  align-items: end;
+}
+.order-item__type {
+  font-family: PT Serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.order-item__dots {
+  width: 50%;
+  height: 40px;
+  margin-left: 5px;
+  border-bottom: 3px dotted grey;
+}
+.order-item__price {
+  margin-top: 5px;
+  font-family: Work Sans;
+  font-weight: 400;
+  font-size: 12px;
+}/*# sourceMappingURL=CartModalOrderItem.css.map */

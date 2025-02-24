@@ -1,6 +1,6 @@
 import React from "react";
 import "./ErrorPage.scss";
-import Button from "../components/button";
+import Button from "../../components/button/button";
 
 export const ErrorPage: React.FC = () => {
   return (

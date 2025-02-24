@@ -1,15 +1,9 @@
 // import { useState } from 'react'
-
-import './App.css'
+import "./App.css";
+import { ErrorPage } from "./pages/errorPage";
 
 function App() {
-
-
-  return (
-    <>
-
-    </>
-  )
+  return <ErrorPage />;
 }
 
-export default App
+export default App;

@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "Button";
 import {useNavigate} from "react-router-dom";
+import "./NoOrderStatus.scss";
 
 const NoOrderStatus = () => {
     const bgColor = "rgba(47, 41, 38, 1)";

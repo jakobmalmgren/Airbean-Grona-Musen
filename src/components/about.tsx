@@ -3,15 +3,15 @@ import React from "react";
 const About: React.FC = () => {
   return (
     <div className="about">
-      <h1>Vårt Kaffe</h1>
-      <p>
+      <h1 className="about__header">Vårt Kaffe</h1>
+      <p className="about__text">
         <b>
           Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio,
           grounds dripper, crema, strong whipped, variety extra iced id lungo
           half and half mazagran. Pumpkin spice.
         </b>
       </p>
-      <p>
+      <p className="about__text">
         Que dark fair trade, spoon decaffeinated, barista wings whipped, as rich
         aftertaste, con panna milk black, arabica white rich beans single shot
         extra affogato. So affogato macchiato sit extraction instant grinder

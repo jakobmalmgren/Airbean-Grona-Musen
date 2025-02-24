@@ -1,12 +1,17 @@
 import React from "react";
 import Button from "Button";
 import {useNavigate} from "react-router-dom";
-import "./NoOrderStatus.scss";
+import "./NoOrdertStatus.scss";
+// imnport "/Button.css" not sure if i should import button css or no
 
-const NoOrderStatus = () => {
-    const bgColor = "rgba(47, 41, 38, 1)";
-    const color= "rgba(255, 255, 255, 1)";
-    const handleClick = () => {
+// created the no order status page with a button imported from statusModal branch and add bgColor and color for styling, 
+// rest of the stylling will keep the same as the original button design
+
+
+const NoOrderStatus:React.FC = () => {
+    const bgColor :string = "rgba(47, 41, 38, 1)";
+    const color :string = "rgba(255, 255, 255, 1)";
+    const handleClick= () => {
         const navigate=useNavigate();
         navigate("/XXXmenupage");   
     };

@@ -1,0 +1,38 @@
+.navbarModal {
+  background-color: rgba(47, 41, 38, 1);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  &__list {
+    color: rgba(255, 255, 255, 1);
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__link {
+    color: rgba(255, 255, 255, 1);
+    font-family: PT Serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38.4px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  &__border {
+    width: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}

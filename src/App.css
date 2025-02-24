@@ -7,4 +7,6 @@
   max-height: 100vh;
   max-width: 100vw;
   background-color: #f3e4e1;
+  text-decoration: none;
+  list-style: none;
 }

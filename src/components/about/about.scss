@@ -1,0 +1,24 @@
+.about {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	gap: 50px;
+	background-color: #f3e4e1;
+	height: 100vh;
+	padding: 1rem;
+	&__header {
+		font-size: 2.6rem;
+			font-weight: 700;
+			font-family: "PT Serif", serif;
+	}&__text-bold {
+	font-weight: 600;
+		font-size: 14px;
+		line-height: 22.4px;
+		letter-spacing: 0%;
+	}&__text-regular {
+			font-weight: 400;
+				font-size: 12px;
+				line-height: 19.2px;
+				letter-spacing: 0%;
+	}
+}

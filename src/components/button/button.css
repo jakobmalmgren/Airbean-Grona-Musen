@@ -1,0 +1,13 @@
+.btn {
+  border: none;
+  border-radius: 50px;
+  padding: 8px 34px;
+  font-family: PT Serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28.8px;
+<<<<<<< HEAD:src/components/button.css
+}/*# sourceMappingURL=Button.css.map */
+=======
+} /*# sourceMappingURL=button.css.map */
+>>>>>>> 615d031b153137e01ddc73451c93a1916f4383c4:src/components/button/button.css

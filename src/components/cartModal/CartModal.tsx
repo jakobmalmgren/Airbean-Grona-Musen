@@ -1,8 +1,8 @@
 import "./cartModal.css";
-import CartModalOrderItem from "./CartModalOrderItem";
-import Button from "./../Button";
+import Button from "../button/button";
+import CartModalOrderItem from "../cartModalOrderItem/CartModalOrderItem";
 
-const CartModal = () => {
+const CartModal: React.FC = () => {
   return (
     <section className="cartModal">
       <section className="cartModal__inner-container">

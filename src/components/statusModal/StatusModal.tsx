@@ -1,6 +1,6 @@
-import Button from "./Button";
 import "./StatusModal.css";
 import orderstatusimage from "../assets/orderstatusimage.svg";
+import Button from "../button/button";
 
 const StatusModal = () => {
   return (

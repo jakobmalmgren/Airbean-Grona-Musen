@@ -4,8 +4,9 @@ import Navbar from "./components/navbar/Navbar";
 import NavbarModal from "./components/navbarModal/NavbarModal";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/footer/Footer";
-
+import { useNavigate } from "react-router-dom";
 import CartModal from "./components/cartModal/CartModal";
+import HomePage from "./pages/landingPage/landing";
 
 function App() {
   // usestage för o hantera true & false för menyn
@@ -13,6 +14,8 @@ function App() {
   // ändrar från true/false
   const handleBurgerMenu = () => {
     setHandleToggle((prev) => {
+      console.log(handleToggle);
+
       return !prev;
     });
   };
@@ -24,18 +27,31 @@ function App() {
     });
   };
 
+  const [home, setHome] = useState(true);
+  const navigate = useNavigate();
+  const handleClick: () => void = () => {
+    navigate("/");
+    setHome((prev) => {
+      return !prev;
+    });
+  };
+
   return (
     <>
-      {/* <HomePage /> */}
-      <Navbar
-        handleBurgerMenu={handleBurgerMenu}
-        handleCartModal={handleCartModal}
-      />
-
-      {cartModal ? <CartModal /> : ""}
-      {handleToggle ? <NavbarModal /> : ""}
-      <Outlet />
-      <Footer />
+      {home ? (
+        <HomePage home={home} handleClick={handleClick} />
+      ) : (
+        <section className="app-wrapper">
+          <Navbar
+            handleBurgerMenu={handleBurgerMenu}
+            handleCartModal={handleCartModal}
+          />
+          {cartModal && <CartModal />}
+          {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
+          <Outlet />
+          <Footer />
+        </section>
+      )}
     </>
   );
 }

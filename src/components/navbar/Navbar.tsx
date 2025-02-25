@@ -9,9 +9,9 @@ const Navbar = ({ handleBurgerMenu, handleCartModal }) => {
       <section className="navbar__burger-wrapper" onClick={handleBurgerMenu}>
         <Hamburger className="navbar__burger" />
       </section>
-      <section className="navbar__basket">
+      <section className="navbar__basket" onClick={handleCartModal}>
         <section className="navbar__cart-count">1</section>
-        <section className="navbar__icon-wrapper" onClick={handleCartModal}>
+        <section className="navbar__icon-wrapper">
           <BsFillHandbagFill className="navbar__icon" />
         </section>
       </section>

@@ -62,4 +62,9 @@
   font-weight: 400;
   color: #666;
   margin-left: 12%;
-}/*# sourceMappingURL=meny.css.map */
+}
+
+.loading {
+  background-color: #f3e4e1;
+  text-align: center;
+}/*# sourceMappingURL=Meny.css.map */

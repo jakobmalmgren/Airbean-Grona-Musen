@@ -2,12 +2,14 @@
 @use "../../Partials/mixins" as *;
 .navbarModal {
   background-color: $secondary-background-color;
-  @include justify-align(center);
+  @include justify-align(center, "");
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  position: fixed;
+  z-index: 11;
 
   &__ul {
     display: flex;

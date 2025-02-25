@@ -39,11 +39,11 @@ const MenuList: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <p>Laddar menyn...</p>;
+    return <div className="loading">LOADING.....</div>;
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return { error };
   }
 
   return (

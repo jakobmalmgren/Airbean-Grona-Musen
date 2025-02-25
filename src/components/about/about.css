@@ -3,7 +3,7 @@
   flex-direction: column;
   text-align: center;
   gap: 50px;
-  background-color: #f3e4e1;
+  background-color: rgb(243, 228, 225);
   height: 100vh;
   padding: 1rem;
 }
@@ -14,13 +14,15 @@
 }
 .about__text-bold {
   font-weight: 600;
-  font-size: 14px;
-  line-height: 22.4px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   letter-spacing: 0%;
+  font-family: "Work Sans", sans-serif;
 }
 .about__text-regular {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 19.2px;
+  font-size: 1rem;
+  line-height: 1.2rem;
   letter-spacing: 0%;
+  font-family: "Work Sans", sans-serif;
 }/*# sourceMappingURL=about.css.map */

@@ -3,20 +3,16 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
 //jakob
 @mixin justify-align($justify, $align) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
 }
-=======
 
-@mixin typography ($font-weight, $font-size, $line-height, $letter-spacing) {
-	font-weight: $font-weight;
-	font-size: $font-size;
-	line-height: $line-height;
-	letter-spacing: $letter-spacing;
-
+@mixin typography($font-weight, $font-size, $line-height, $letter-spacing) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
 }
->>>>>>> 673b34d2d65f6ac790d1c3fe0d04bca0523798a6

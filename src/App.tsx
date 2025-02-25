@@ -11,7 +11,10 @@ import HomePage from "./pages/landingPage/landing";
 function App() {
   // usestage för o hantera true & false för menyn
   const [handleToggle, setHandleToggle] = useState(false);
-  // ändrar från true/false
+  const [cartModal, setCartModal] = useState(false);
+  const [home, setHome] = useState(true);
+
+  //togglar menyn false true
   const handleBurgerMenu = () => {
     setHandleToggle((prev) => {
       console.log(handleToggle);
@@ -19,16 +22,16 @@ function App() {
       return !prev;
     });
   };
-  const [cartModal, setCartModal] = useState(false);
-
+  //togglar cartModal false true
   const handleCartModal = () => {
     setCartModal((prev) => {
       return !prev;
     });
   };
 
-  const [home, setHome] = useState(true);
   const navigate = useNavigate();
+  // tar oss från startsidan ill "/"
+  // och ser till så den togglar state
   const handleClick: () => void = () => {
     navigate("/");
     setHome((prev) => {
@@ -37,6 +40,8 @@ function App() {
   };
 
   return (
+    // här skickas en del state och sen funktioner
+    //outlet är där vi renderar all content mellan nav och footer
     <>
       {home ? (
         <HomePage home={home} handleClick={handleClick} />

@@ -44,7 +44,7 @@
     // här använder jag argument för o skicka till justify-align
     @include justify-align(center, center);
     position: absolute;
-    top: 25px;
+    top: 10px;
     right: 15px;
     font-family: $secondary-font-family;
   }

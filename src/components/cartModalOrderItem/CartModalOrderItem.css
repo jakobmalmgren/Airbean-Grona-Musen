@@ -1,9 +1,10 @@
 .order-item__wrapper {
   display: flex;
+  justify-content: "";
   align-items: end;
 }
 .order-item__type {
-  font-family: PT Serif;
+  font-family: "PT Serif", serif;
   font-weight: 700;
   font-size: 20px;
 }
@@ -15,7 +16,7 @@
 }
 .order-item__price {
   margin-top: 5px;
-  font-family: Work Sans;
+  font-family: "Work Sans", sans-serif;
   font-weight: 400;
   font-size: 12px;
 }/*# sourceMappingURL=CartModalOrderItem.css.map */

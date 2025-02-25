@@ -1,10 +1,12 @@
+@use "../../Partials/mixins" as *;
+@use "../../Partials/variables" as *;
+
 .order-item {
   &__wrapper {
-    display: flex;
-    align-items: end;
+    @include justify-align("", end);
   }
   &__type {
-    font-family: PT Serif;
+    font-family: $secondary-font-family;
     font-weight: 700;
     font-size: 20px;
   }
@@ -17,7 +19,7 @@
   }
   &__price {
     margin-top: 5px;
-    font-family: Work Sans;
+    font-family: $primary-font-family;
     font-weight: 400;
     font-size: 12px;
   }

@@ -1,7 +1,8 @@
+@use "../../Partials/variables" as *;
+@use "../../Partials/mixins" as *;
 .navbarModal {
-  background-color: rgba(47, 41, 38, 1);
-  display: flex;
-  justify-content: center;
+  background-color: $secondary-background-color;
+  @include justify-align(center);
   height: 100vh;
   position: absolute;
   top: 0;
@@ -15,15 +16,15 @@
     text-align: center;
   }
   &__list {
-    color: rgba(255, 255, 255, 1);
+    color: $font-seconday-color;
     margin: 20px 0px;
     display: flex;
     align-items: center;
     flex-direction: column;
   }
   &__link {
-    color: rgba(255, 255, 255, 1);
-    font-family: PT Serif;
+    color: $font-seconday-color;
+    font-family: $secondary-font-family;
     font-weight: 700;
     font-size: 32px;
     line-height: 38.4px;

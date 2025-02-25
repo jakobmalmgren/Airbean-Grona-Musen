@@ -1,42 +1,42 @@
+@use "../../Partials/mixins" as *;
+@use "../../Partials/variables" as *;
+
 .status-modal {
-  background-color: rgba(229, 103, 78, 1);
+  background-color: $third-background-color;
   height: 100vh;
-  display: flex;
+  @include justify-align(space-evenly, center);
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
 
   &__order-number {
-    font-family: Work Sans;
+    font-family: $primary-font-family;
     font-size: 16px;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
   }
   &__info {
-    font-family: PT Serif;
+    font-family: $secondary-font-family;
     font-weight: 700;
     font-size: 36px;
     line-height: 43.2px;
     letter-spacing: 0%;
     text-align: center;
-    color: rgba(255, 255, 255, 1);
+    color: $font-seconday-color;
   }
   &__time-wrapper {
-    display: flex;
-    justify-content: space-around;
+    @include justify-align(space-around);
     align-items: center;
     width: 30%;
   }
   &__time {
-    font-family: Work Sans;
+    font-family: $primary-font-family;
     font-weight: 700;
     font-size: 22px;
     color: rgba(255, 255, 255, 1);
   }
   &__minutes {
-    font-family: Work Sans;
+    font-family: $primary-font-family;
     font-weight: 400;
     font-size: 22px;
-    color: rgba(255, 255, 255, 1);
+    color: $font-seconday-color;
   }
 }

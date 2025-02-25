@@ -1,13 +1,15 @@
+@use "../../Partials/mixins" as *;
+@use "../../Partials/variables" as *;
+
 .cartModal {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
-  display: flex;
   padding: 1rem;
+  @include justify-align(center);
 
-  justify-content: center;
   &__inner-container {
     padding: 1rem;
-    font-family: PT Serif;
+    font-family: $secondary-font-family;
     font-weight: 700;
     font-size: 32px;
     border-radius: 3px;
@@ -32,16 +34,14 @@
   }
   &__wrapper {
     height: 280px;
-    display: flex;
-    justify-content: end;
+    @include justify-align(end);
     flex-direction: column;
   }
   &__price-section {
-    display: flex;
-    align-items: end;
+    @include justify-align("", end);
   }
   &__lower-header {
-    font-family: PT Serif;
+    font-family: $secondary-font-family;
     font-weight: 700;
     font-size: 23px;
   }
@@ -49,23 +49,21 @@
     width: 50%;
     height: 40px;
     margin-left: 5px;
-
     border-bottom: 3px dotted grey;
   }
   &__price {
-    font-family: PT Serif;
+    font-family: $secondary-font-family;
     font-weight: 700;
     font-size: 23px;
   }
   &__extra-info-secction {
-    font-family: Work Sans;
+    font-family: $primary-font-family;
     font-weight: 400;
     font-size: 12px;
-    color: rgba(47, 41, 38, 1);
+    color: $font-primary-color;
   }
   &__btn-wrapper {
-    display: flex;
-    justify-content: center;
+    @include justify-align(center);
     margin-top: 1.5rem;
   }
 }

@@ -1,10 +1,12 @@
+@use "../../Partials/variables" as *;
+@use "../../Partials/mixins" as *;
+// * representerar alla filer i ex mixins eller variables
 .navbar {
   height: 113px;
-  background-color: rgba(243, 228, 225, 1);
+  background-color: $primary-background-color;
   background-image: url("../../assets/header.svg");
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include justify-align(space-between, center);
+  // här använder jag argument för o skicka till justify-align
 
   &__burger-wrapper {
     width: 48px;
@@ -22,11 +24,11 @@
   &__basket {
     width: 60px;
     height: 60px;
-    background-color: rgba(47, 41, 38, 1);
+    background-color: $secondary-background-color;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // här använder jag argument för o skicka till justify-align
+
+    @include justify-align(center, center);
     margin-right: 1rem;
   }
   &__icon {
@@ -36,12 +38,12 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background-color: rgba(229, 103, 78, 1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: $third-background-color;
+    // här använder jag argument för o skicka till justify-align
+    @include justify-align(center, center);
     position: absolute;
     top: 25px;
     right: 15px;
+    font-family: $secondary-font-family;
   }
 }

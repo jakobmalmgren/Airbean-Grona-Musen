@@ -1,55 +1,55 @@
 import React, { useState, useEffect } from "react";
 import "./meny.scss";
 interface MenuItem {
-    id: string;
-    title: string;
-    desc: string;
-    price: number;
+  id: string;
+  title: string;
+  desc: string;
+  price: number;
 }
 
 interface MenuResponse {
-    menu: MenuItem[];
+  menu: MenuItem[];
 }
 
 const MenuList: React.FC = () => {
-const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-const [loading, setLoading] = useState<boolean>(true);
-const [error, setError] = useState<string | null>(null);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchMenu = async () => {
-        try {
+      try {
         const response = await fetch(
-            "https://airbean-9pcyw.ondigitalocean.app/api/beans"
+          "https://airbean-9pcyw.ondigitalocean.app/api/beans"
         );
         if (!response.ok) {
-            throw new Error(`HTTP-fel! Status: ${response.status}`);
+          throw new Error(`HTTP-fel! Status: ${response.status}`);
         }
         const data: MenuResponse = await response.json();
         setMenuItems(data.menu);
-        } catch (err) {
+      } catch (err) {
         setError("Fel vid hämtning av menyn.");
         console.error("Fel vid hämtning av menyn:", err);
-        } finally {
+      } finally {
         setLoading(false);
-        }
+      }
     };
 
     fetchMenu();
-}, []);
+  }, []);
 
-if (loading) {
+  if (loading) {
     return <p>Laddar menyn...</p>;
-}
+  }
 
-if (error) {
+  if (error) {
     return <p>{error}</p>;
-}
+  }
 
-return (
+  return (
     <div className="menu-container">
       <div className="menu">
-      <h1>Meny</h1>
+        <h1>Meny</h1>
         <ul>
           {menuItems.map((item) => (
             <li key={item.id} className="menu-item">
@@ -66,8 +66,6 @@ return (
       </div>
     </div>
   );
-  
 };
-
 
 export default MenuList;

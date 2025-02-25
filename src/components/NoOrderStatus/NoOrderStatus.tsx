@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "Button";
-import {useNavigate} from "react-router-dom";
+import Button from "../button/button";
 import "./NoOrdertStatus.scss";
 // imnport "/Button.css" not sure if i should import button css or no
 
@@ -11,16 +10,16 @@ import "./NoOrdertStatus.scss";
 const NoOrderStatus:React.FC = () => {
     const bgColor :string = "rgba(47, 41, 38, 1)";
     const color :string = "rgba(255, 255, 255, 1)";
-    const handleClick= () => {
-        const navigate=useNavigate();
-        navigate("/XXXmenupage");   
-    };
+ 
     return(
         <section className="no__order__status__frame">
             <h1 className="no__order__status__title">Din Korg är Tomt!</h1>
-            <Button onClick={handleClick} bgColor={bgColor} color={color}>Köp Nu!</Button>
+            <Button  bgColor={bgColor} color={color}>Köp Nu!</Button>
         </section>
     )};
+
+
+
 
 export default NoOrderStatus;
 

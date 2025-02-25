@@ -3,16 +3,24 @@
   flex-direction: column;
   text-align: center;
   gap: 50px;
+  background-color: #f3e4e1;
+  height: 100vh;
+  padding: 1rem;
 }
-
 .about__header {
   font-size: 2.6rem;
   font-weight: 700;
   font-family: "PT Serif", serif;
 }
-
-.about__text {
+.about__text-bold {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 0%;
+}
+.about__text-regular {
   font-weight: 400;
-  font-size: 1rem;
-  font-family: "Work Sans", serif;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: 0%;
 }/*# sourceMappingURL=about.css.map */

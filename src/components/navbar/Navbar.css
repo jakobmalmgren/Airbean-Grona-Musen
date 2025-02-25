@@ -1,7 +1,7 @@
 .navbar {
   height: 113px;
   background-color: rgb(243, 228, 225);
-  background-image: url("../assets/header.svg");
+  background-image: url("../../assets/header.svg");
   display: flex;
   justify-content: space-between;
   align-items: center;

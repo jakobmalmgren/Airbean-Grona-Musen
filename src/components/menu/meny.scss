@@ -81,4 +81,8 @@
 .loading {
   background-color: #f3e4e1;
   text-align: center;
+  height: 90vh;
+  &__p {
+    padding-top: 3rem;
+  }
 }

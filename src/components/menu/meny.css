@@ -67,4 +67,8 @@
 .loading {
   background-color: #f3e4e1;
   text-align: center;
-}/*# sourceMappingURL=Meny.css.map */
+  height: 90vh;
+}
+.loading__p {
+  padding-top: 3rem;
+}/*# sourceMappingURL=meny.css.map */

@@ -1,7 +1,7 @@
-// import { useState } from 'react'
-import MenuList from "./components/meny";
+// import MenuList from "./components/menu/meny";
 
 import "./App.css";
+import About from "./components/about/about";
 
 function App() {
   return (

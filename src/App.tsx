@@ -1,13 +1,11 @@
-// import MenuList from "./components/menu/meny";
-
-
-
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import NavbarModal from "./components/navbarModal/NavbarModal";
-import NoOrderStatus from "./components/NoOrderStatus/NoOrderStatus"
-import Button from "./components/button/button";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/footer/Footer";
+
+import CartModal from "./components/cartModal/CartModal";
 
 function App() {
   // usestage för o hantera true & false för menyn
@@ -18,11 +16,26 @@ function App() {
       return !prev;
     });
   };
+  const [cartModal, setCartModal] = useState(false);
+
+  const handleCartModal = () => {
+    setCartModal((prev) => {
+      return !prev;
+    });
+  };
 
   return (
     <>
-      <Navbar handleBurgerMenu={handleBurgerMenu} />
+      {/* <HomePage /> */}
+      <Navbar
+        handleBurgerMenu={handleBurgerMenu}
+        handleCartModal={handleCartModal}
+      />
+
+      {cartModal ? <CartModal /> : ""}
       {handleToggle ? <NavbarModal /> : ""}
+      <Outlet />
+      <Footer />
     </>
   );
 }

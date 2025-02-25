@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./meny.scss";
+import "./Meny.scss";
 interface MenuItem {
   id: string;
   title: string;

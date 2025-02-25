@@ -4,7 +4,6 @@
   text-align: center;
   gap: 50px;
   background-color: rgb(243, 228, 225);
-  height: 100vh;
   padding: 1rem;
 }
 .about__header {
@@ -25,4 +24,4 @@
   line-height: 1.2rem;
   letter-spacing: 0%;
   font-family: "Work Sans", sans-serif;
-}/*# sourceMappingURL=about.css.map */
+} /*# sourceMappingURL=about.css.map */

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const handleClick: () => void = () => {
-    navigate("/landing");
+    navigate("/");
   };
   return (
     <div className="wrapper" onClick={handleClick}>

@@ -46,8 +46,10 @@ function App() {
             handleBurgerMenu={handleBurgerMenu}
             handleCartModal={handleCartModal}
           />
+
           {cartModal && <CartModal />}
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
+
           <Outlet />
           <Footer />
         </section>

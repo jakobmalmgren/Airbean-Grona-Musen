@@ -45,7 +45,7 @@ export const MenuList: React.FC = () => {
   if (loading) {
     return (
       <div className="loading">
-        <p className="loading__p">LOADING.....</p>
+        <p className="loading__p">LADDAR.....</p>
       </div>
     );
   }

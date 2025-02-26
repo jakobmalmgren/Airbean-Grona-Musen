@@ -1,22 +1,19 @@
 import "./cartModal.css";
 import Button from "../button/button";
 import CartModalOrderItem from "../cartModalOrderItem/CartModalOrderItem";
-import { Item } from "../../types";
+import { Item } from "../../types/types";
 // import { useEffect } from "react";
 
 type CartModalProps = {
   cart: Item[];
+  setCart: React.Dispatch<React.SetStateAction<Item[]>>;
+  postRequest: () => void;
 };
-const CartModal: React.FC<CartModalProps> = ({ cart }) => {
+const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest }) => {
+const total = cart.reduce((sum, current) => sum + current.price * current.antal, 0);
   // fixar en totalt på allt man lägger till
-  console.log("cart i cartmodalaaaaaaaaaaaaaaaaaa:", cart.antal);
+  console.log("cart i cartmodala fixed antal:", cart.map(item => item.antal));
 
-  // console.log("cartinfo....", cart);
-  // const priceArray = cart.map((item) => {
-  //   return item.price;
-  // });
-  // const total = priceArray.reduce((acc, current) => acc + current);
-  // console.log("ttotal:", total);
 
   return (
     <section className="cartModal">
@@ -32,8 +29,8 @@ const CartModal: React.FC<CartModalProps> = ({ cart }) => {
               <section className="cartModal__price-section">
                 <h2 className="cartModal__lower-header">Total </h2>
                 <h2 className="cartModal__dots"></h2>
-                <p className="cartModal__price">price sen....</p>
-              </section>
+                <p className="cartModal__price">{total} SEK</p> 
+                </section>
               <p className="cartModal__extra-info-secction">
                 inkl moms + drönarleverans
               </p>

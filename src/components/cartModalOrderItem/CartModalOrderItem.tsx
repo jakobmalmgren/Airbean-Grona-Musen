@@ -1,4 +1,4 @@
-import { Item } from "../../types";
+import { Item } from "../../types/types";
 import "./CartModalOrderItem.css";
 
 type CartModalOrderItemProps = {

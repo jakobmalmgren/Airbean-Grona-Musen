@@ -5,7 +5,7 @@ import {
 } from "react-router";
 import App from "./App";
 import { MenuList } from "./components/menu/meny";
-import About from "./components/about/About";
+import About from "./components/about/about";
 import StatusModal from "./components/statusModal/StatusModal";
 // import { ErrorPage } from "./pages/errorPage/ErrorPage";
 

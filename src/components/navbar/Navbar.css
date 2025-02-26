@@ -1,5 +1,5 @@
 .navbar {
-  height: 113px;
+  height: 13vh;
   background-color: rgb(243, 228, 225);
   background-image: url("../../assets/header.svg");
   display: flex;
@@ -16,13 +16,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 12;
 }
 .navbar__basket {
+  cursor: pointer;
   width: 60px;
   height: 60px;
   background-color: rgb(47, 41, 38);
   border-radius: 50%;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +42,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 25px;
+  top: 10px;
   right: 15px;
   font-family: "PT Serif", serif;
 }/*# sourceMappingURL=Navbar.css.map */

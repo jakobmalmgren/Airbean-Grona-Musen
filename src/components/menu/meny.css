@@ -1,8 +1,5 @@
-body {
-  background-color: #f3e4e1;
-}
-
 .menu-container {
+  background-color: #f3e4e1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +27,6 @@ body {
   align-items: center;
   font-size: 16px;
   font-weight: bold;
-  position: relative;
 }
 .menu-container .menu ul .menu-item .menu-item-header .plus-button {
   background: #2f2926;
@@ -66,4 +62,13 @@ body {
   font-weight: 400;
   color: #666;
   margin-left: 12%;
-}/*# sourceMappingURL=meny.css.map */
+}
+
+.loading {
+  background-color: #f3e4e1;
+  text-align: center;
+  height: 90vh;
+}
+.loading__p {
+  padding-top: 3rem;
+}/*# sourceMappingURL=Meny.css.map */

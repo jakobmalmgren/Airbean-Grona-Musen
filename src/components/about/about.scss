@@ -2,22 +2,23 @@
 @use "../../Partials/mixins.scss" as *;
 
 .about {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	gap: 50px;
-	background-color: $primary-background-color ;
-	height: 100vh;
-	padding: 1rem;
-	&__header {
-		font-size: 2.6rem;
-			font-weight: 700;
-			font-family: $secondary-font-family;
-	}&__text-bold {
-	@include typography (600 ,1rem, 1.5rem, 0%);
-		font-family: $primary-font-family;
-	}&__text-regular {
-		@include typography (400, 1rem, 1.2rem, 0%);
-				font-family: $primary-font-family;
-	}
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 50px;
+  background-color: $primary-background-color;
+  padding: 1rem;
+  &__header {
+    font-size: 2.6rem;
+    font-weight: 700;
+    font-family: $secondary-font-family;
+  }
+  &__text-bold {
+    @include typography(600, 1rem, 1.5rem, 0%);
+    font-family: $primary-font-family;
+  }
+  &__text-regular {
+    @include typography(400, 1rem, 1.2rem, 0%);
+    font-family: $primary-font-family;
+  }
 }

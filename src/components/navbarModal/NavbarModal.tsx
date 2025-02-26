@@ -1,25 +1,42 @@
+import { NavLink } from "react-router-dom";
 import "./NavbarModal.css";
+// import to from "./../../../node_modules/colorjs.io/src/to";
 
-const NavbarModal = () => {
+const NavbarModal = ({ handleBurgerMenu }) => {
   return (
+    // måste få de o sttänga när de trycker på link
     <section className="navbarModal">
       <ul className="navbarModal__ul">
         <li className="navbarModal__list">
-          <a className="navbarModal__link" href="">
+          <NavLink
+            to="/"
+            className="navbarModal__link"
+            onClick={handleBurgerMenu}
+          >
             Meny
-          </a>
+          </NavLink>
+
           <section className="navbarModal__border"></section>
         </li>
         <li className="navbarModal__list">
-          <a className="navbarModal__link" href="">
+          <NavLink
+            onClick={handleBurgerMenu}
+            to="/about"
+            className="navbarModal__link"
+          >
             Vårt kaffe
-          </a>
+          </NavLink>
+
           <section className="navbarModal__border"></section>
         </li>
         <li className="navbarModal__list">
-          <a className="navbarModal__link" href="">
+          <NavLink
+            onClick={handleBurgerMenu}
+            to="/status"
+            className="navbarModal__link"
+          >
             Orderstatus
-          </a>
+          </NavLink>
           <section className="navbarModal__border"></section>
         </li>
       </ul>

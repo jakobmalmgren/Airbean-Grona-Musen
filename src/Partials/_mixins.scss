@@ -1,9 +1,3 @@
-//döp om sen
-@mixin justify-align {
-  justify-content: center;
-  align-items: center;
-}
-
 //jakob
 @mixin justify-align($justify, $align) {
   display: flex;
@@ -16,10 +10,15 @@
 	font-size: $font-size;
 	line-height: $line-height;
 	letter-spacing: $letter-spacing;
-
 }
 
-@mixin btn-styles ($padding-top, $padding-left,$font-weight,$font-size,$line-height) {
+@mixin btn-styles(
+  $padding-top,
+  $padding-left,
+  $font-weight,
+  $font-size,
+  $line-height
+) {
   border-radius: 50px;
   padding: $padding-top $padding-left;
   font-family: PT Serif;
@@ -27,4 +26,3 @@
   font-size: $font-size;
   line-height: $line-height;
 }
-

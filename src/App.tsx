@@ -84,11 +84,13 @@ function App() {
         <HomePage home={home} handleClick={handleClick} />
       ) : (
         <section className="app-wrapper">
+          {location.pathname !== "/status" && (
           <Navbar
             handleBurgerMenu={handleBurgerMenu}
             handleCartModal={handleCartModal}
           />
-
+          )}
+          
           {cartModal && <CartModal cart={cart} />}
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 

@@ -2,14 +2,16 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import NavbarModal from "./components/navbarModal/NavbarModal";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import Footer from "./components/footer/Footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import CartModal from "./components/cartModal/CartModal";
 import HomePage from "./pages/landingPage/landing";
+import { Item } from "./types";
+import { MenuItem } from "./components/menu/meny";
 
 function App() {
-  // usestage för o hantera true & false för menyn
+  // usestate för o hantera true & false för menyn
   const [handleToggle, setHandleToggle] = useState(false);
   const [cartModal, setCartModal] = useState(false);
   const [home, setHome] = useState(true);
@@ -30,7 +32,7 @@ function App() {
   };
 
   const navigate = useNavigate();
-  // tar oss från startsidan ill "/"
+  // tar oss från startsidan till "/"
   // och ser till så den togglar state
   const handleClick: () => void = () => {
     navigate("/");
@@ -39,12 +41,12 @@ function App() {
     });
   };
 
-  // nyttt med API jakob:
+  // nytt med API jakob:
   //cartens state
   // carten ska skickas ttill cartmodalen
   //fixade med outlet med och skicka props via useoutletcontext på menupage
-
-  const handleUpdateCart = (item) => {
+  const [cart, setCart] = useState<Item[]>([]);
+  const handleUpdateCart = (item: MenuItem) => {
     // gör en check o ser om obj redan finns i array, finns de lägg
     //till text 2 stycken..
 
@@ -55,7 +57,7 @@ function App() {
     if (itemExists) {
       console.log("item exists");
 
-      console.log("uppdaterad cartt", cart);
+      console.log("uppdaterad cart", cart);
 
       // HUR ÄNDRAR JAG DÄR SÅ MAN LÄGGER TILL PROPERY MED ANTAL:2
       setCart((prevCart) =>
@@ -74,55 +76,7 @@ function App() {
     }
   };
 
-  console.log("uppdatterad meny", cart);
-
-  //
-
-  const [orderNr, setOrderNr] = useState();
-
-  const postRequest = async () => {
-    console.log("cart:", cart);
-
-    const postCart = {
-      details: {
-        order: cart.map((item) => {
-          return {
-            name: item.title,
-            price: item.price,
-          };
-        }),
-      },
-    };
-    console.log("postcard", postCart);
-
-    const url = "https://airbean-9pcyw.ondigitalocean.app/api/beans/order";
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postCart),
-      });
-
-      // Vänta på att servern svarar och returnera svaret i JSON-format
-      const data = await response.json();
-
-      setOrderNr(data.orderNr);
-      console.log("ordernr!!!", data.orderNr);
-
-      if (!response.ok) {
-        // Hantera eventuella fel här om svaret inte var ok
-        throw new Error(`Error: ${data.message || "Something went wrong"}`);
-      }
-
-      console.log("User created successfully:", data); // Hantera den skapade användaren
-    } catch (error) {
-      console.error("Error creating user:", error); // Hantera fel om något går fel
-    }
-  };
-
-  //
+  console.log("uppdaterad meny", cart);
 
   return (
     // här skickas en del state och sen funktioner
@@ -139,18 +93,11 @@ function App() {
             />
           )}
 
-          {cartModal && (
-            <CartModal
-              setCart={setCart}
-              postRequest={postRequest}
-              cart={cart}
-            />
-          )}
+          {cartModal && <CartModal cart={cart} />}
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 
-          <Outlet
-            context={{ handleUpdateCart: handleUpdateCart, orderNr: orderNr }}
-          />
+          <Outlet context={{ handleUpdateCart: handleUpdateCart }} />
+
           {location.pathname !== "/status" && <Footer />}
         </section>
       )}

@@ -2,9 +2,9 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-} from "react-router-dom";
+} from "react-router";
 import App from "./App";
-import MenuList from "./components/menu/Meny";
+import { MenuList } from "./components/menu/meny";
 import About from "./components/about/About";
 import StatusModal from "./components/statusModal/StatusModal";
 // import { ErrorPage } from "./pages/errorPage/ErrorPage";

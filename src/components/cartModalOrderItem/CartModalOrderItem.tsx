@@ -1,6 +1,11 @@
+import { Item } from "../../types";
 import "./CartModalOrderItem.css";
 
-const CartModalOrderItem = ({ item }) => {
+type CartModalOrderItemProps = {
+  item: Item;
+};
+
+const CartModalOrderItem = ({ item }: CartModalOrderItemProps) => {
   return (
     <section className="order-item">
       <section className="order-item__wrapper">

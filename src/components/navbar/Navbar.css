@@ -1,5 +1,7 @@
 .navbar {
   height: 13vh;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: rgb(243, 228, 225);
   background-image: url("../../assets/header.svg");
   display: flex;

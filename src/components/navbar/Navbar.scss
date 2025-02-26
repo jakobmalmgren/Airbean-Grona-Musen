@@ -4,6 +4,8 @@
 .navbar {
   // height: 113px;
   height: 13vh;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: $primary-background-color;
   background-image: url("../../assets/header.svg");
   @include justify-align(space-between, center);

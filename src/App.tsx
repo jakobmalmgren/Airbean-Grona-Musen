@@ -13,7 +13,7 @@ function App() {
   const [handleToggle, setHandleToggle] = useState(false);
   const [cartModal, setCartModal] = useState(false);
   const [home, setHome] = useState(true);
-
+  const [cart, setCart] = useState([]);
   //togglar menyn false true
   const handleBurgerMenu = () => {
     setHandleToggle((prev) => {
@@ -43,7 +43,7 @@ function App() {
   //cartens state
   // carten ska skickas ttill cartmodalen
   //fixade med outlet med och skicka props via useoutletcontext på menupage
-  const [cart, setCart] = useState([]);
+
   const handleUpdateCart = (item) => {
     // gör en check o ser om obj redan finns i array, finns de lägg
     //till text 2 stycken..
@@ -76,6 +76,54 @@ function App() {
 
   console.log("uppdatterad meny", cart);
 
+  //
+
+  const [orderNr, setOrderNr] = useState();
+
+  const postRequest = async () => {
+    console.log("cart:", cart);
+
+    const postCart = {
+      details: {
+        order: cart.map((item) => {
+          return {
+            name: item.title,
+            price: item.price,
+          };
+        }),
+      },
+    };
+    console.log("postcard", postCart);
+
+    const url = "https://airbean-9pcyw.ondigitalocean.app/api/beans/order";
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postCart),
+      });
+
+      // Vänta på att servern svarar och returnera svaret i JSON-format
+      const data = await response.json();
+
+      setOrderNr(data.orderNr);
+      console.log("ordernr!!!", data.orderNr);
+
+      if (!response.ok) {
+        // Hantera eventuella fel här om svaret inte var ok
+        throw new Error(`Error: ${data.message || "Something went wrong"}`);
+      }
+
+      console.log("User created successfully:", data); // Hantera den skapade användaren
+    } catch (error) {
+      console.error("Error creating user:", error); // Hantera fel om något går fel
+    }
+  };
+
+  //
+
   return (
     // här skickas en del state och sen funktioner
     //outlet är där vi renderar all content mellan nav och footer
@@ -85,19 +133,25 @@ function App() {
       ) : (
         <section className="app-wrapper">
           {location.pathname !== "/status" && (
-          <Navbar
-            handleBurgerMenu={handleBurgerMenu}
-            handleCartModal={handleCartModal}
-          />
+            <Navbar
+              handleBurgerMenu={handleBurgerMenu}
+              handleCartModal={handleCartModal}
+            />
           )}
-          
-          {cartModal && <CartModal cart={cart} />}
+
+          {cartModal && (
+            <CartModal
+              setCart={setCart}
+              postRequest={postRequest}
+              cart={cart}
+            />
+          )}
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 
-          <Outlet context={{ handleUpdateCart: handleUpdateCart }} />
-          {location.pathname !== "/status" && (
-          <Footer />
-        )}
+          <Outlet
+            context={{ handleUpdateCart: handleUpdateCart, orderNr: orderNr }}
+          />
+          {location.pathname !== "/status" && <Footer />}
         </section>
       )}
     </>

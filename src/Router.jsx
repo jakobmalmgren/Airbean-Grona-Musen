@@ -7,7 +7,7 @@ import App from "./App";
 import MenuList from "./components/menu/Meny";
 import About from "./components/about/About";
 import StatusModal from "./components/statusModal/StatusModal";
-// import { ErrorPage } from "./pages/ErrorPage";
+// import { ErrorPage } from "./pages/errorPage/ErrorPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

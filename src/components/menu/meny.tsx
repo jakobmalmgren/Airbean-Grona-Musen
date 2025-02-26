@@ -50,9 +50,13 @@ export const MenuList: React.FC = () => {
     );
   }
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+if (error) {
+  return (
+    <div className="error">
+      <p>{error}</p>
+    </div>
+  );
+}
 
   return (
     <div className="menu-container">

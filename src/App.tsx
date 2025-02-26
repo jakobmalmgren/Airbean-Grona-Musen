@@ -9,7 +9,7 @@ import CartModal from "./components/cartModal/CartModal";
 import HomePage from "./pages/landingPage/landing";
 
 function App() {
-  // usestage för o hantera true & false för menyn
+  // usestate för o hantera true & false för menyn
   const [handleToggle, setHandleToggle] = useState(false);
   const [cartModal, setCartModal] = useState(false);
   const [home, setHome] = useState(true);
@@ -30,7 +30,7 @@ function App() {
   };
 
   const navigate = useNavigate();
-  // tar oss från startsidan ill "/"
+  // tar oss från startsidan till "/"
   // och ser till så den togglar state
   const handleClick: () => void = () => {
     navigate("/");
@@ -39,7 +39,7 @@ function App() {
     });
   };
 
-  // nyttt med API jakob:
+  // nytt med API jakob:
   //cartens state
   // carten ska skickas ttill cartmodalen
   //fixade med outlet med och skicka props via useoutletcontext på menupage
@@ -55,7 +55,7 @@ function App() {
     if (itemExists) {
       console.log("item exists");
 
-      console.log("uppdaterad cartt", cart);
+      console.log("uppdaterad cart", cart);
 
       // HUR ÄNDRAR JAG DÄR SÅ MAN LÄGGER TILL PROPERY MED ANTAL:2
       setCart((prevCart) =>
@@ -74,7 +74,7 @@ function App() {
     }
   };
 
-  console.log("uppdatterad meny", cart);
+  console.log("uppdaterad meny", cart);
 
   return (
     // här skickas en del state och sen funktioner
@@ -85,19 +85,17 @@ function App() {
       ) : (
         <section className="app-wrapper">
           {location.pathname !== "/status" && (
-          <Navbar
-            handleBurgerMenu={handleBurgerMenu}
-            handleCartModal={handleCartModal}
-          />
+            <Navbar
+              handleBurgerMenu={handleBurgerMenu}
+              handleCartModal={handleCartModal}
+            />
           )}
-          
+
           {cartModal && <CartModal cart={cart} />}
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 
           <Outlet context={{ handleUpdateCart: handleUpdateCart }} />
-          {location.pathname !== "/status" && (
-          <Footer />
-        )}
+          {location.pathname !== "/status" && <Footer />}
         </section>
       )}
     </>

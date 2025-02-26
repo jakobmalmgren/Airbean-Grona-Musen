@@ -39,6 +39,43 @@ function App() {
     });
   };
 
+  // nyttt med API jakob:
+  //cartens state
+  // carten ska skickas ttill cartmodalen
+  //fixade med outlet med och skicka props via useoutletcontext på menupage
+  const [cart, setCart] = useState([]);
+  const handleUpdateCart = (item) => {
+    // gör en check o ser om obj redan finns i array, finns de lägg
+    //till text 2 stycken..
+
+    //kollar om obj finns i array:
+    const itemExists = cart.find((cartItem) => {
+      return cartItem.title === item.title;
+    });
+    if (itemExists) {
+      console.log("item exists");
+
+      console.log("uppdaterad cartt", cart);
+
+      // HUR ÄNDRAR JAG DÄR SÅ MAN LÄGGER TILL PROPERY MED ANTAL:2
+      setCart((prevCart) =>
+        prevCart.map(
+          (cartItem) =>
+            cartItem.title === item.title
+              ? { ...cartItem, antal: (cartItem.antal += 1) } // Lägg till 1 till antal
+              : cartItem // Behåll andra objekt oförändrade
+        )
+      );
+    } else {
+      console.log("item NOT! exists");
+
+      // Om objektet inte finns, lägg till det med antal: 1
+      setCart((prevCart) => [...prevCart, { ...item, antal: 1 }]);
+    }
+  };
+
+  console.log("uppdatterad meny", cart);
+
   return (
     // här skickas en del state och sen funktioner
     //outlet är där vi renderar all content mellan nav och footer
@@ -52,10 +89,10 @@ function App() {
             handleCartModal={handleCartModal}
           />
 
-          {cartModal && <CartModal />}
+          {cartModal && <CartModal cart={cart} />}
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 
-          <Outlet />
+          <Outlet context={{ handleUpdateCart: handleUpdateCart }} />
           <Footer />
         </section>
       )}

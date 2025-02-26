@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Meny.scss";
+import { useOutletContext } from "react-router-dom";
 interface MenuItem {
   id: string;
   title: string;
@@ -12,6 +13,7 @@ interface MenuResponse {
 }
 
 const MenuList: React.FC = () => {
+  const { handleUpdateCart } = useOutletContext();
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -58,7 +60,15 @@ const MenuList: React.FC = () => {
           {menuItems.map((item) => (
             <li key={item.id} className="menu-item">
               <div className="menu-item-header">
-                <div className="plus-button">+</div>
+                <div
+                  className="plus-button"
+                  onClick={() => {
+                    handleUpdateCart(item);
+                    console.log(item);
+                  }}
+                >
+                  +
+                </div>
                 <span className="item-name">{item.title}</span>
                 <span className="dots"></span>
                 <span className="item-price">{item.price} kr</span>

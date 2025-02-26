@@ -95,7 +95,9 @@ function App() {
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 
           <Outlet context={{ handleUpdateCart: handleUpdateCart }} />
+          {location.pathname !== "/status" && (
           <Footer />
+        )}
         </section>
       )}
     </>

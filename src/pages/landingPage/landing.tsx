@@ -1,6 +1,11 @@
 import "./Landing.css";
 
-const HomePage: React.FC = ({ handleClick, home }) => {
+type HomePageProps = {
+  handleClick: () => void;
+  home: boolean;
+};
+
+const HomePage: React.FC<HomePageProps> = ({ handleClick, home }) => {
   return home ? <div className="wrapper" onClick={handleClick}></div> : null;
 };
 

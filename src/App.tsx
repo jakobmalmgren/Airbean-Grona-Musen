@@ -2,11 +2,13 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import NavbarModal from "./components/navbarModal/NavbarModal";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import Footer from "./components/footer/Footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import CartModal from "./components/cartModal/CartModal";
 import HomePage from "./pages/landingPage/landing";
+import { Item } from "./types";
+import { MenuItem } from "./components/menu/meny";
 
 function App() {
   // usestate för o hantera true & false för menyn
@@ -43,8 +45,8 @@ function App() {
   //cartens state
   // carten ska skickas ttill cartmodalen
   //fixade med outlet med och skicka props via useoutletcontext på menupage
-  const [cart, setCart] = useState([]);
-  const handleUpdateCart = (item) => {
+  const [cart, setCart] = useState<Item[]>([]);
+  const handleUpdateCart = (item: MenuItem) => {
     // gör en check o ser om obj redan finns i array, finns de lägg
     //till text 2 stycken..
 
@@ -95,6 +97,7 @@ function App() {
           {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
 
           <Outlet context={{ handleUpdateCart: handleUpdateCart }} />
+
           {location.pathname !== "/status" && <Footer />}
         </section>
       )}

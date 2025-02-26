@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import "./NavbarModal.css";
 // import to from "./../../../node_modules/colorjs.io/src/to";
 

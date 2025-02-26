@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Meny.scss";
-import { useOutletContext } from "react-router-dom";
-interface MenuItem {
+import { useOutletContext } from "react-router";
+export interface MenuItem {
   id: string;
   title: string;
   desc: string;
@@ -12,8 +12,10 @@ interface MenuResponse {
   menu: MenuItem[];
 }
 
-const MenuList: React.FC = () => {
-  const { handleUpdateCart } = useOutletContext();
+export const MenuList: React.FC = () => {
+  const { handleUpdateCart } = useOutletContext<{
+    handleUpdateCart: (item: MenuItem) => void;
+  }>();
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +51,7 @@ const MenuList: React.FC = () => {
   }
 
   if (error) {
-    return { error };
+    return <p>{error}</p>;
   }
 
   return (
@@ -81,5 +83,3 @@ const MenuList: React.FC = () => {
     </div>
   );
 };
-
-export default MenuList;

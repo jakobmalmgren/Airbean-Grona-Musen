@@ -1,9 +1,13 @@
 import "./cartModal.css";
 import Button from "../button/button";
 import CartModalOrderItem from "../cartModalOrderItem/CartModalOrderItem";
+import { Item } from "../../types";
 // import { useEffect } from "react";
 
-const CartModal: React.FC = ({ cart }) => {
+type CartModalProps = {
+  cart: Item[];
+};
+const CartModal: React.FC<CartModalProps> = ({ cart }) => {
   // fixar en totalt på allt man lägger till
   console.log("cart i cartmodal:", cart);
 

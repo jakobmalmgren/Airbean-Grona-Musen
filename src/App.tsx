@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import NavbarModal from "./components/navbarModal/NavbarModal";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router";
 import Footer from "./components/footer/Footer";
 import CartModal from "./components/cartModal/CartModal";
 import { Item } from "./types/types"; 
@@ -17,10 +17,6 @@ function App() {
   const [home, setHome] = useState(true);
 
 const location = useLocation();
-
-
-
-
 
 useEffect(() => {
   setCartModal(false);

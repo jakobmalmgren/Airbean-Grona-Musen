@@ -74,4 +74,22 @@
 }
 .loading__p {
   padding-top: 3rem;
+}
+
+.box-price {
+  background-color: rgba(229, 103, 78, 0.494);
+  margin-top: 1rem;
+  padding: 0.1rem;
+  border-radius: 1rem;
+  width: 300px;
+  width: auto;
+  top: 100px;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.diff-price {
+  margin: 1rem;
+  color: rgb(47, 41, 38);
+  text-align: center;
 }/*# sourceMappingURL=meny.css.map */

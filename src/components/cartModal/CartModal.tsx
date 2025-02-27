@@ -67,7 +67,7 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
                 <h2 className="cartModal__dots"></h2>
                 <p className="cartModal__price">{total} SEK</p>
                 </section>
-                <p className="cartModal__price-off">Rabatt {prisRabatt * 59} SEK</p>  
+                <p className="cartModal__price-off">Rabatt {prisRabatt * 49} SEK</p>  
               <p className="cartModal__extra-info-secction">
                 inkl moms + drönarleverans
               </p>
@@ -88,7 +88,7 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
             </section>
           </>
         ) : (
-          "Din kunvagn är tom"
+          "Din kundvagn är tom"
         )}
       </section>
     </section>

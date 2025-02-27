@@ -83,6 +83,12 @@ if (error) {
             </li>
           ))}
         </ul>
+        <section className="box-price">
+        <div className="diff-price">
+          <h2>Dagens Erbjudande:</h2>
+        <p>köp en Bryggkaffe och en Gustav Adolfsbakelse för endast 40 sek!</p>
+        </div>
+        </section>
       </div>
     </div>
   );

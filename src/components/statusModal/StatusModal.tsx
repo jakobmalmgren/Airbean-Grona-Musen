@@ -4,11 +4,17 @@ import Button from "../button/button";
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
+interface OutletContextType {
+  orderNr: string;
+}
 const StatusModal = () => {
-  const { orderNr } = useOutletContext();
+  const { orderNr } = useOutletContext<OutletContextType>(); 
   const nav = useNavigate();
-  const [eta, setEta] = useState();
+
+  const [eta, setEta] = useState<{ eta: number } | null>(null);
+
   console.log("order", orderNr);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,7 +36,7 @@ const StatusModal = () => {
     };
 
     fetchData(); // Anropa funktionen för att hämta data
-  }, []);
+  }, [orderNr]);
 
   return (
     <section className="status-modal">

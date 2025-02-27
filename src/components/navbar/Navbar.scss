@@ -2,14 +2,13 @@
 @use "../../Partials/mixins" as *;
 // * representerar alla filer i ex mixins eller variables
 .navbar {
-  // height: 113px;
+
   height: 13vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: $primary-background-color;
   background-image: url("../../assets/header.svg");
   @include justify-align(space-between, center);
-  // här använder jag argument för o skicka till justify-align
 
   &__burger-wrapper {
     width: 48px;
@@ -30,24 +29,28 @@
     height: 60px;
     background-color: $secondary-background-color;
     border-radius: 50%;
-    // här använder jag argument för o skicka till justify-align
     z-index: 10;
-    @include justify-align(center, center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
     margin-right: 1rem;
   }
+
   &__icon {
     color: white;
   }
+
   &__cart-count {
-    width: 22px;
-    height: 22px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: $third-background-color;
-    // här använder jag argument för o skicka till justify-align
     @include justify-align(center, center);
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: -10px; 
+    right: -10px; 
     font-family: $secondary-font-family;
+    font-size: 12px;
   }
 }

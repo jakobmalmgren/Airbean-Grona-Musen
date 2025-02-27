@@ -8,16 +8,17 @@ interface NavbarProps {
   handleBurgerMenu: () => void;
   handleCartModal: () => void;
   cart: Item[];
+  handleToggle: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ handleBurgerMenu, handleCartModal, cart }) => {
+const Navbar: React.FC<NavbarProps> = ({ handleBurgerMenu, handleCartModal, cart, handleToggle  }) => {
   
   const totalItems = cart.reduce((total, cartItem) => total + cartItem.antal, 0);
   
   return (
     <nav className="navbar">
-      <section className="navbar__burger-wrapper" onClick={handleBurgerMenu}>
-        <Hamburger />
+      <section className="navbar__burger-wrapper">
+      <Hamburger toggled={handleToggle} toggle={handleBurgerMenu} />
       </section>
       <section className="navbar__basket" onClick={handleCartModal}>
         <section className="navbar__cart-count">{totalItems}</section>

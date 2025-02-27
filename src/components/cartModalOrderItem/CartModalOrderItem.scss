@@ -23,4 +23,20 @@
     font-weight: 400;
     font-size: 12px;
   }
+  &__btn {
+    cursor: pointer;
+    padding: 1rem;
+    width: 20px;
+    border: 1px solid black;
+    height: 20px;
+    @include justify-align(center, center);
+  }
+  &__select-wrapper {
+    width: 12rem;
+    // background-color: red;
+    @include justify-align(space-evenly, center);
+  }
+  &__trash {
+    display: flex;
+  }
 }

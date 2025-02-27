@@ -1,24 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import NavbarModal from "./components/navbarModal/NavbarModal";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/footer/Footer";
-import { useNavigate } from "react-router-dom";
 import CartModal from "./components/cartModal/CartModal";
-import HomePage from "./pages/landingPage/landing";
+import { Item } from "./types/types"; 
+import HomePage from "./pages/landingPage/landing"; 
+
 
 function App() {
   // usestage för o hantera true & false för menyn
   const [handleToggle, setHandleToggle] = useState(false);
   const [cartModal, setCartModal] = useState(false);
+  const [cart, setCart] = useState<Item[]>([]);
   const [home, setHome] = useState(true);
-  const [cart, setCart] = useState([]);
+
+const location = useLocation();
+
+
+
+
+
+useEffect(() => {
+  setCartModal(false);
+  setHandleToggle(false);
+}, [location]);
+
   //togglar menyn false true
   const handleBurgerMenu = () => {
     setHandleToggle((prev) => {
       console.log(handleToggle);
-
+      setCartModal(false);
       return !prev;
     });
   };
@@ -29,28 +42,14 @@ function App() {
     });
   };
 
-  const navigate = useNavigate();
-  // tar oss från startsidan ill "/"
-  // och ser till så den togglar state
-  const handleClick: () => void = () => {
-    navigate("/");
-    setHome((prev) => {
-      return !prev;
-    });
-  };
 
-  // nyttt med API jakob:
-  //cartens state
-  // carten ska skickas ttill cartmodalen
   //fixade med outlet med och skicka props via useoutletcontext på menupage
 
-  const handleUpdateCart = (item) => {
-    // gör en check o ser om obj redan finns i array, finns de lägg
-    //till text 2 stycken..
+  const handleUpdateCart = (item: Item) => {
 
     //kollar om obj finns i array:
-    const itemExists = cart.find((cartItem) => {
-      return cartItem.title === item.title;
+    const itemExists = cart.find((Item) => {
+      return Item.title === item.title;
     });
     if (itemExists) {
       console.log("item exists");
@@ -59,13 +58,13 @@ function App() {
 
       // HUR ÄNDRAR JAG DÄR SÅ MAN LÄGGER TILL PROPERY MED ANTAL:2
       setCart((prevCart) =>
-        prevCart.map(
-          (cartItem) =>
-            cartItem.title === item.title
-              ? { ...cartItem, antal: (cartItem.antal += 1) } // Lägg till 1 till antal
-              : cartItem // Behåll andra objekt oförändrade
+        prevCart.map((Item) =>
+          Item.title === item.title
+            ? { ...Item, antal: Item.antal + 1 } // Rätt sätt att uppdatera antal
+            : Item
         )
       );
+      
     } else {
       console.log("item NOT! exists");
 
@@ -76,7 +75,6 @@ function App() {
 
   console.log("uppdatterad meny", cart);
 
-  //
 
   const [orderNr, setOrderNr] = useState();
 
@@ -122,41 +120,65 @@ function App() {
     }
   };
 
-  //
+
+  const increaseQuantity = (id: string) => {  
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id ? { ...item, antal: item.antal + 1 } : item
+      )
+    );
+  };
+  
+  
+  const decreaseQuantity = (id: string) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id && item.antal > 1 ? { ...item, antal: item.antal - 1 } : item
+      )
+    );
+  };
+  
+  const deleteItem = (id: string) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+  
+  const handleClick = () => {
+    setHome(false);  
+  };
 
   return (
-    // här skickas en del state och sen funktioner
-    //outlet är där vi renderar all content mellan nav och footer
     <>
-      {home ? (
-        <HomePage home={home} handleClick={handleClick} />
-      ) : (
-        <section className="app-wrapper">
-          {location.pathname !== "/status" && (
-            <Navbar
-              cart={cart}
-              handleBurgerMenu={handleBurgerMenu}
-              handleCartModal={handleCartModal}
-            />
-          )}
-
-          {cartModal && (
-            <CartModal
-              setCart={setCart}
-              postRequest={postRequest}
-              cart={cart}
-            />
-          )}
-          {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
-
-          <Outlet
-            context={{ handleUpdateCart: handleUpdateCart, orderNr: orderNr }}
+      <section className="app-wrapper">
+        {location.pathname !== "/status" && (
+          <Navbar
+            cart={cart}
+            handleBurgerMenu={handleBurgerMenu}
+            handleCartModal={handleCartModal}
+            handleToggle={handleToggle}  
           />
-          {location.pathname !== "/status" && <Footer />}
-        </section>
-      )}
+        )}
+  
+        {cartModal && (
+          <CartModal
+            setCart={setCart}
+            postRequest={postRequest}
+            cart={cart}
+            itemCartAdd={increaseQuantity} 
+            itemCartRemove={decreaseQuantity}  
+            itemCartDelete={deleteItem}       
+          />
+        )}
+  
+        {handleToggle && <NavbarModal handleBurgerMenu={handleBurgerMenu} />}
+        {home && <HomePage handleClick={handleClick} home={home} />}
+        <Outlet
+          context={{ handleUpdateCart: handleUpdateCart, orderNr: orderNr }}
+        />
+  {location.pathname !== "/status" && !home && <Footer />} 
+      </section>
     </>
   );
+  
 }
 
 export default App;

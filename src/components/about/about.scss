@@ -5,20 +5,33 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 50px;
   background-color: $primary-background-color;
   padding: 1rem;
+  width: 100%; 
+  max-width: 100vw; 
+  box-sizing: border-box; 
+
   &__header {
     font-size: 2.6rem;
     font-weight: 700;
     font-family: $secondary-font-family;
+    word-wrap: break-word; 
   }
-  &__text-bold {
-    @include typography(600, 1rem, 1.5rem, 0%);
-    font-family: $primary-font-family;
-  }
+
+  &__text-bold,
   &__text-regular {
-    @include typography(400, 1rem, 1.2rem, 0%);
-    font-family: $primary-font-family;
+    width: 100%; 
+    max-width: 100%;
+    overflow-wrap: break-word;
+
+  
   }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+
+  }
+
 }

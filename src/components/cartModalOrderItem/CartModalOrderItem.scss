@@ -10,6 +10,19 @@
     font-weight: 700;
     font-size: 20px;
   }
+
+  &__amount {
+    font-family: $secondary-font-family;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    width: 2rem;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 0 .5rem 0 .5rem;
+    @include justify-align(center, center);
+  }
   &__dots {
     width: 50%;
     height: 40px;

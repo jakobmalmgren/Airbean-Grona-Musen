@@ -52,7 +52,6 @@ useEffect(() => {
 
       console.log("uppdaterad cartt", cart);
 
-      // HUR ÄNDRAR JAG DÄR SÅ MAN LÄGGER TILL PROPERY MED ANTAL:2
       setCart((prevCart) =>
         prevCart.map((Item) =>
           Item.title === item.title

@@ -13,11 +13,33 @@ type CartModalProps = {
   itemCartDelete: (id: string) => void;
 };
 const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemCartAdd, itemCartRemove, itemCartDelete }) => {
-
   // navigera till "status" efter order är lagd.
   const navToStatus = useNavigate();
+  
+  const bryggKaffe = cart.find(item => item.title === "Bryggkaffe");
+  const bakelse = cart.find(item => item.title === 'Gustav Adolfsbakelse');
+  
+  const kaffeAntal = bryggKaffe ? bryggKaffe.antal : 0;
+  const bakelseAntal = bakelse ? bakelse.antal : 0;
 
-  const total = cart.reduce((sum, current) => sum + current.price * current.antal, 0);
+  const prisRabatt = Math.min(kaffeAntal, bakelseAntal);
+
+  const total = cart.reduce((sum, item) => {
+    if (item.title === "Bryggkaffe") {
+      const rabattKaffe = Math.min(prisRabatt, item.antal);
+      const kaffeKvar = item.antal - rabattKaffe;
+      return sum + kaffeKvar * item.price;
+    }
+    if (item.title === "Gustav Adolfsbakelse") {
+      const rabattBakelse = Math.min(prisRabatt, item.antal);
+      const bakelseKvar = item.antal - rabattBakelse;
+      return sum + rabattBakelse * 40 + bakelseKvar * item.price;
+    }
+    return sum + item.price * item.antal;
+  }, 0);
+
+
+  // const total = cart.reduce((sum, current) => sum + current.price * current.antal, 0);
 
   // fixar en totalt på allt man lägger till
   console.log("cart i cartmodala fixed antal:", cart.map(item => item.antal));
@@ -43,11 +65,13 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
               <section className="cartModal__price-section">
                 <h2 className="cartModal__lower-header">Total </h2>
                 <h2 className="cartModal__dots"></h2>
-                <p className="cartModal__price">{total} SEK</p> 
+                <p className="cartModal__price">{total} SEK</p>
                 </section>
+                <p className="cartModal__price-off">Rabatt {prisRabatt * 59} SEK</p>  
               <p className="cartModal__extra-info-secction">
                 inkl moms + drönarleverans
               </p>
+              
               <section className="cartModal__btn-wrapper">
                 <Button
                   onClick={() => {

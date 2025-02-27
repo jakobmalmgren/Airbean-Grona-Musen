@@ -63,6 +63,14 @@
   font-weight: 700;
   font-size: 23px;
 }
+.cartModal__price-off {
+  color: red;
+  font-family: "PT Serif", serif;
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
 .cartModal__extra-info-secction {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;

@@ -1,11 +1,11 @@
 .menu-container {
-  background-color: #f3e4e1;
+  background-color: rgb(243, 228, 225);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: auto;
-  font-family: "Georgia", serif;
-  color: #2f2926;
+  font-family: "Work Sans", sans-serif;
+  color: rgb(47, 41, 38);
   height: 100vh;
 }
 
@@ -26,13 +26,14 @@
 }
 .menu ul .menu-item .menu-item-header {
   display: flex;
+  justify-content: "";
   align-items: center;
   font-size: 16px;
   font-weight: bold;
 }
 .menu ul .menu-item .menu-item-header .plus-button {
-  background: #2f2926;
-  color: #fff;
+  background: rgb(47, 41, 38);
+  color: rgb(255, 255, 255);
   width: 32px;
   height: 32px;
   border-radius: 100%;
@@ -51,7 +52,7 @@
 }
 .menu ul .menu-item .menu-item-header .dots {
   flex-grow: 1;
-  border-bottom: 1px dotted #2f2926;
+  border-bottom: 1px dotted rgb(47, 41, 38);
   margin-top: 4%;
 }
 .menu ul .menu-item .menu-item-header .item-price {
@@ -67,7 +68,7 @@
 }
 
 .loading {
-  background-color: #f3e4e1;
+  background-color: rgb(243, 228, 225);
   text-align: center;
   height: 90vh;
 }

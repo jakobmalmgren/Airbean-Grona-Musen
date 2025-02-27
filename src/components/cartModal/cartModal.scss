@@ -68,6 +68,15 @@
     font-weight: 700;
     font-size: 23px;
   }
+  &__price-off {
+    color: red;
+    font-family: $secondary-font-family;
+    font-weight: 300;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+
+  }
   &__extra-info-secction {
     font-family: $primary-font-family;
     font-weight: 400;

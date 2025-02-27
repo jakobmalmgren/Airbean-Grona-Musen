@@ -4,7 +4,8 @@
 .about {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
+  gap: 2rem;
   background-color: $primary-background-color;
   padding: 1rem;
   width: 100%; 

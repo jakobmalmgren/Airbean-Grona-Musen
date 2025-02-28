@@ -88,7 +88,7 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
             </section>
           </>
         ) : (
-          "Din kundvagn är tom"
+          "Hejsan på dig"
         )}
       </section>
     </section>

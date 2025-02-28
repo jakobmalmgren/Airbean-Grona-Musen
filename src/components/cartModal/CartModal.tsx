@@ -12,13 +12,20 @@ type CartModalProps = {
   itemCartRemove: (id: string) => void;
   itemCartDelete: (id: string) => void;
 };
-const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemCartAdd, itemCartRemove, itemCartDelete }) => {
+const CartModal: React.FC<CartModalProps> = ({
+  cart,
+  setCart,
+  postRequest,
+  itemCartAdd,
+  itemCartRemove,
+  itemCartDelete,
+}) => {
   // navigera till "status" efter order är lagd.
   const navToStatus = useNavigate();
-  
-  const bryggKaffe = cart.find(item => item.title === "Bryggkaffe");
-  const bakelse = cart.find(item => item.title === 'Gustav Adolfsbakelse');
-  
+
+  const bryggKaffe = cart.find((item) => item.title === "Bryggkaffe");
+  const bakelse = cart.find((item) => item.title === "Gustav Adolfsbakelse");
+
   const kaffeAntal = bryggKaffe ? bryggKaffe.antal : 0;
   const bakelseAntal = bakelse ? bakelse.antal : 0;
 
@@ -38,12 +45,13 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
     return sum + item.price * item.antal;
   }, 0);
 
-
   // const total = cart.reduce((sum, current) => sum + current.price * current.antal, 0);
 
   // fixar en totalt på allt man lägger till
-  console.log("cart i cartmodala fixed antal:", cart.map(item => item.antal));
-
+  console.log(
+    "cart i cartmodala fixed antal:",
+    cart.map((item) => item.antal)
+  );
 
   return (
     <section className="cartModal">
@@ -66,18 +74,20 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
                 <h2 className="cartModal__lower-header">Total </h2>
                 <h2 className="cartModal__dots"></h2>
                 <p className="cartModal__price">{total} SEK</p>
-                </section>
-                <p className="cartModal__price-off">Rabatt {prisRabatt * 49} SEK</p>  
+              </section>
+              <p className="cartModal__price-off">
+                Rabatt {prisRabatt * 49} SEK
+              </p>
               <p className="cartModal__extra-info-secction">
                 inkl moms + drönarleverans
               </p>
-              
+
               <section className="cartModal__btn-wrapper">
                 <Button
                   onClick={() => {
                     postRequest();
                     setCart([]);
-                    navToStatus("/status")
+                    navToStatus("/status");
                   }}
                   bgColor={"rgba(47, 41, 38, 1)"}
                   color={" rgba(255, 255, 255, 1)"}
@@ -88,7 +98,7 @@ const CartModal: React.FC<CartModalProps> = ({ cart, setCart, postRequest, itemC
             </section>
           </>
         ) : (
-          "Din kundvagn är tom"
+          <p className="cartModal__empty">Din kundvagn är tom</p>
         )}
       </section>
     </section>

@@ -74,8 +74,7 @@
     font-weight: 300;
     font-size: 1rem;
     margin-bottom: 1rem;
-    margin-top: .5rem;
-
+    margin-top: 0.5rem;
   }
   &__extra-info-secction {
     font-family: $primary-font-family;
@@ -86,5 +85,9 @@
   &__btn-wrapper {
     @include justify-align(center, "");
     margin-top: 1.5rem;
+  }
+  &__empty {
+    text-align: center;
+    margin-top: 13rem;
   }
 }
